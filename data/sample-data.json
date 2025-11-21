@@ -1,0 +1,35 @@
+{
+  "receivers": [
+    {"id": "RX001", "lat": 40.6000, "lon": -74.2000, "alt": 10, "name": "Newark Station", "status": "active"},
+    {"id": "RX002", "lat": 40.9000, "lon": -74.2000, "alt": 15, "name": "North Bergen", "status": "active"},
+    {"id": "RX003", "lat": 40.6000, "lon": -73.7000, "alt": 12, "name": "JFK Station", "status": "active"},
+    {"id": "RX004", "lat": 40.9000, "lon": -73.7000, "alt": 20, "name": "Bronx Station", "status": "active"},
+    {"id": "RX005", "lat": 40.7500, "lon": -74.5000, "alt": 8, "name": "West Station", "status": "active"},
+    {"id": "RX006", "lat": 40.7500, "lon": -73.4000, "alt": 18, "name": "East Station", "status": "active"},
+    {"id": "RX007", "lat": 40.5000, "lon": -74.0000, "alt": 5, "name": "South Station", "status": "active"},
+    {"id": "RX008", "lat": 41.0000, "lon": -74.0000, "alt": 22, "name": "North Station", "status": "active"},
+    {"id": "RX009", "lat": 40.7500, "lon": -73.9500, "alt": 14, "name": "Central Manhattan", "status": "active"},
+    {"id": "RX010", "lat": 40.6500, "lon": -73.9500, "alt": 16, "name": "Brooklyn Central", "status": "active"},
+    {"id": "RX011", "lat": 40.5800, "lon": -74.1500, "alt": 11, "name": "Staten Island", "status": "active"},
+    {"id": "RX012", "lat": 40.9200, "lon": -73.7800, "alt": 16, "name": "New Rochelle", "status": "active"},
+    {"id": "RX013", "lat": 40.6200, "lon": -74.0300, "alt": 13, "name": "Bay Ridge", "status": "active"},
+    {"id": "RX014", "lat": 40.8700, "lon": -74.0500, "alt": 17, "name": "Fort Lee", "status": "active"},
+    {"id": "RX015", "lat": 40.7500, "lon": -73.7200, "alt": 6, "name": "Queens East", "status": "active"}
+  ],
+  "restrictedZones": [
+    {"id": "RZ001", "name": "JFK Restricted", "lat": 40.6413, "lon": -73.7781, "radius": 3000, "type": "airport"},
+    {"id": "RZ002", "name": "Manhattan No-Fly", "lat": 40.7580, "lon": -73.9855, "radius": 2000, "type": "sensitive"},
+    {"id": "RZ003", "name": "Military Zone", "lat": 40.8500, "lon": -73.9000, "radius": 2500, "type": "military"}
+  ],
+  "runways": [
+    {"id": "RWY01", "number": "04/22", "name": "LaGuardia 04/22", "lat": 40.7769, "lon": -73.8740, "heading": 40, "length": 2134},
+    {"id": "RWY02", "number": "04L/22R", "name": "JFK 04L/22R", "lat": 40.6413, "lon": -73.7781, "heading": 40, "length": 3682},
+    {"id": "RWY03", "number": "04R/22L", "name": "Newark 04R/22L", "lat": 40.6895, "lon": -74.1745, "heading": 40, "length": 3353},
+    {"id": "RWY04", "number": "06/24", "name": "Teterboro 06/24", "lat": 40.8501, "lon": -74.0608, "heading": 60, "length": 2133},
+    {"id": "RWY05", "number": "16/34", "name": "Westchester 16/34", "lat": 41.0669, "lon": -73.7076, "heading": 160, "length": 2012},
+    {"id": "RWY06", "number": "10/28", "name": "Caldwell 10/28", "lat": 40.8752, "lon": -74.2814, "heading": 100, "length": 1463},
+    {"id": "RWY07", "number": "01/19", "name": "Republic 01/19", "lat": 40.7292, "lon": -73.4134, "heading": 10, "length": 1829}
+  ],
+  "messages": []
+}
+
