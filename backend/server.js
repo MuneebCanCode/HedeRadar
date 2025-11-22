@@ -9,7 +9,18 @@ import { checkAllAlerts } from './alert-system.js';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+// CORS configuration for production
+app.use(cors({
+  origin: [
+    'http://localhost:5173',              // Local development
+    'https://hede-radar.vercel.app',      // Production Vercel
+    /\.vercel\.app$/,                     // All Vercel preview deployments
+    process.env.FRONTEND_URL              // Environment variable
+  ].filter(Boolean),
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // In-memory storage for demo
