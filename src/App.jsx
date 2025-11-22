@@ -114,7 +114,7 @@ function App() {
         showReports={showReports}
         alertCount={alerts.length}
       />
-      <div className="main-content">
+      <div className="main-content"> //dfsaffasd
         <Map 
           receivers={receivers} 
           positions={positions}
