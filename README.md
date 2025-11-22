@@ -1,5 +1,9 @@
 # 🛰️ HedeRadar - Advanced Aircraft Tracking System
 
+Google Drive Link for Pitch Deck: https://drive.google.com/file/d/1qSGiFJ6S7y0qANgJ074WcNunkAgD4eDH/view?usp=sharing
+
+Demo Video Youtube Link: https://youtu.be/dodGQLQyu6Y
+
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-brightgreen)](https://hede-radar.vercel.app)
 [![Backend API](https://img.shields.io/badge/Backend%20API-Railway-blue)](https://hederadar-production.up.railway.app)
 [![Hedera Network](https://img.shields.io/badge/Hedera-Testnet-purple)](https://hashscan.io/testnet)
