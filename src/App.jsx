@@ -5,9 +5,8 @@ import Header from './components/Header';
 import Reports from './components/Reports';
 import SplashScreen from './components/SplashScreen';
 import axios from 'axios';
+import { API_URL } from './config';
 import './App.css';
-
-const API_URL = 'http://localhost:3001/api';
 
 function App() {
   const [receivers, setReceivers] = useState([]);
@@ -114,7 +113,7 @@ function App() {
         showReports={showReports}
         alertCount={alerts.length}
       />
-      <div className="main-content"> //dfsaffasd
+      <div className="main-content"> 
         <Map 
           receivers={receivers} 
           positions={positions}
