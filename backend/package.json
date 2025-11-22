@@ -1,0 +1,32 @@
+{
+  "name": "hederadar-backend",
+  "version": "1.0.0",
+  "description": "HedeRadar Backend - MLAT Aircraft Tracking with Hedera Integration",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.49.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "axios": "^1.7.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mlat",
+    "aircraft",
+    "tracking",
+    "hedera",
+    "blockchain",
+    "aviation",
+    "radar"
+  ],
+  "author": "HedeRadar Team",
+  "license": "MIT"
+}
