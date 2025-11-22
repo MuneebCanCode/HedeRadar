@@ -507,19 +507,28 @@ function generateDemoPositions() {
     { id: 'UAL123', route: [[40.65, -74.15], [40.7, -74.0], [40.75, -73.95], [40.7769, -73.8740]], alt: 3200, speed: 450, runway: 'RWY01', type: 'arrival' },
     { id: 'DAL456', route: [[40.0, -73.0], [40.3, -73.4], [40.55, -73.65], [40.7769, -73.8740]], alt: 3500, speed: 455, runway: 'RWY01', type: 'arrival' },
     { id: 'AAL789', route: [[41.05, -73.65], [41.2, -73.5], [41.4, -73.3], [41.6, -72.9]], alt: 4000, speed: 480, runway: 'RWY01', type: 'departure' },
-    { id: 'SWA234', route: [[40.45, -74.05], [40.4, -74.2], [40.2, -74.5], [39.9, -74.8]], alt: 2800, speed: 420, runway: 'RWY01', type: 'departure' },
+    
+    // PROXIMITY ALERT: Two aircraft too close to each other (same altitude, close position)
+    { id: 'PROX01', route: [[40.72, -73.98], [40.73, -73.97], [40.74, -73.96], [40.75, -73.95]], alt: 3000, speed: 450, runway: 'RWY01', type: 'arrival' },
+    { id: 'PROX02', route: [[40.721, -73.981], [40.731, -73.971], [40.741, -73.961], [40.751, -73.951]], alt: 3000, speed: 455, runway: 'RWY01', type: 'arrival' },
     
     // RWY02 - JFK (2 arriving, 2 departing) - MOVED TO YELLOW CIRCLE (right side)
     { id: 'JBU567', route: [[40.75, -73.2], [40.72, -73.4], [40.68, -73.6], [40.6413, -73.7781]], alt: 4200, speed: 490, runway: 'RWY02', type: 'arrival' },
     { id: 'FDX890', route: [[39.8, -74.6], [40.1, -74.2], [40.35, -74.0], [40.6413, -73.7781]], alt: 5000, speed: 510, runway: 'RWY02', type: 'arrival' },
     { id: 'UAL456', route: [[40.85, -73.55], [41.0, -73.3], [41.2, -73.0], [41.4, -72.6]], alt: 3200, speed: 460, runway: 'RWY02', type: 'departure' },
-    { id: 'DAL789', route: [[40.35, -74.0], [40.25, -74.2], [40.1, -74.4], [39.8, -74.7]], alt: 3800, speed: 475, runway: 'RWY02', type: 'departure' },
+    
+    // RESTRICTED AIRSPACE: Aircraft entering Manhattan No-Fly zone (40.7580, -73.9855, radius 2000m)
+    // Positioned to trigger restricted airspace alert but away from runways
+    { id: 'RESTRICT01', route: [[40.745, -73.99], [40.755, -73.988], [40.765, -73.986], [40.775, -73.984]], alt: 3500, speed: 420, runway: null, type: 'transit' },
     
     // RWY03 - Newark (2 arriving, 2 departing) - MOVED TO YELLOW CIRCLE (bottom left)
     { id: 'AAL234', route: [[40.15, -74.8], [40.35, -74.6], [40.55, -74.4], [40.6895, -74.1745]], alt: 3500, speed: 465, runway: 'RWY03', type: 'arrival' },
     { id: 'SWA567', route: [[39.9, -73.3], [40.2, -73.7], [40.45, -74.0], [40.6895, -74.1745]], alt: 4100, speed: 485, runway: 'RWY03', type: 'arrival' },
     { id: 'JBU890', route: [[40.95, -74.45], [41.1, -74.7], [41.3, -75.0], [41.5, -75.3]], alt: 2900, speed: 430, runway: 'RWY03', type: 'departure' },
-    { id: 'FDX234', route: [[40.35, -74.35], [40.25, -74.6], [40.1, -74.8], [39.9, -75.1]], alt: 3300, speed: 455, runway: 'RWY03', type: 'departure' },
+    
+    // PATH DEVIATION: Aircraft deviating significantly from planned route to Newark
+    // Current position is far off the planned route (should be at 40.35, -74.6 but is at 40.5, -74.0)
+    { id: 'DEVIATE01', route: [[40.35, -74.6], [40.45, -74.4], [40.55, -74.25], [40.6895, -74.1745]], alt: 3200, speed: 460, runway: 'RWY03', type: 'arrival', targetRunway: 'RWY03' },
     
     // RWY04 - Teterboro (3 arriving) - REPOSITIONED AAL567 BEFORE RUNWAY
     { id: 'UAL789', route: [[41.8, -75.0], [41.5, -74.7], [41.2, -74.4], [40.8501, -74.0608]], alt: 4500, speed: 500, runway: 'RWY04', type: 'arrival' },
@@ -557,6 +566,12 @@ function generateDemoPositions() {
     // Use FIRST position in route as current position (aircraft starting point, far from runway)
     let currentPos = aircraft.route[0];
     
+    // Special case: DEVIATE01 should be OFF its planned route to trigger path deviation
+    if (aircraft.id === 'DEVIATE01') {
+      // Current position is significantly off the planned route
+      currentPos = [40.5, -74.0]; // Should be at [40.35, -74.6] but deviated
+    }
+    
     positions.push({
       aircraftId: aircraft.id,
       lat: currentPos[0],
@@ -568,7 +583,7 @@ function generateDemoPositions() {
       receivers: ['RX001', 'RX002', 'RX003', 'RX004'],
       timestamp: timestamp,
       route: aircraft.route,
-      targetRunway: aircraft.runway
+      targetRunway: aircraft.runway || aircraft.targetRunway
     });
   });
 
