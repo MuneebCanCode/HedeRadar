@@ -1,0 +1,32 @@
+<svg width="900" height="350" viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cyan/Turquoise triangular elements -->
+  <g id="cyan-triangles">
+    <!-- Top triangle -->
+    <path d="M 160 50 L 220 50 L 190 120 Z" fill="#00D4D4" stroke="none"/>
+    
+    <!-- Left triangle -->
+    <path d="M 40 280 L 160 280 L 100 150 Z" fill="#00D4D4" stroke="none"/>
+    
+    <!-- Right triangle -->
+    <path d="M 220 280 L 340 280 L 280 150 Z" fill="#00D4D4" stroke="none"/>
+    
+    <!-- Small accent piece -->
+    <path d="M 160 120 L 180 150 L 140 150 Z" fill="#00D4D4" stroke="none"/>
+  </g>
+  
+  <!-- Purple/Lavender paper plane -->
+  <g id="purple-plane">
+    <path d="M 190 100 L 100 240 L 140 200 L 190 240 L 280 100 L 220 160 Z" 
+          fill="#B8A4E8" 
+          stroke="none"
+          opacity="0.95"/>
+  </g>
+  
+  <!-- HedeRadar text -->
+  <text x="400" y="220" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="90" 
+        font-weight="700" 
+        fill="#FFFFFF" 
+        letter-spacing="8">HedeRadar</text>
+</svg>
