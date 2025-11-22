@@ -33,7 +33,7 @@ let runways = [];
 let alerts = [];
 let alertReports = [];
 
-// Initialize Hedera
+// Initialize Hedera and load initial data
 let hederaInitialized = false;
 (async () => {
   hederaInitialized = await hederaService.initialize();
@@ -48,6 +48,29 @@ let hederaInitialized = false;
         features: ['MLAT', 'Alerts', 'Rewards']
       });
     }
+  }
+  
+  // Auto-load initial data on startup
+  console.log('🚀 Loading initial data on server startup...');
+  try {
+    // Load sample data (receivers, runways, restricted zones)
+    const messages = loadSampleData();
+    console.log(`✅ Loaded: ${receivers.length} receivers, ${runways.length} runways, ${restrictedZones.length} zones`);
+    
+    // Process initial MLAT data to generate aircraft positions
+    const results = await processMLAT(messages);
+    console.log(`✅ Initial aircraft positions generated: ${positions.length} aircraft`);
+    
+    // Immediately generate demo positions for display
+    if (typeof generateDemoPositions === 'function') {
+      generateDemoPositions();
+      console.log(`✅ Demo positions initialized`);
+    }
+  } catch (error) {
+    console.error('⚠️  Error during initialization:', error.message);
+    // Fallback to mock data
+    generateMockData();
+    console.log('✅ Fallback mock data loaded');
   }
 })();
 
