@@ -5,5 +5,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173
+  },
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        // Ignore all warnings during build
+        return;
+      }
+    }
   }
 });
