@@ -77,7 +77,7 @@ let hederaInitialized = false;
 // Load sample data
 function loadSampleData() {
   try {
-    const data = JSON.parse(readFileSync('./data/sample-data.json', 'utf-8'));
+    const data = JSON.parse(readFileSync('../data/sample-data.json', 'utf-8'));
     receivers = data.receivers;
     restrictedZones = data.restrictedZones || [];
     runways = data.runways || [];
@@ -658,7 +658,7 @@ function generateDemoPositions() {
 setTimeout(async () => {
   console.log('🚀 Generating demo data...');
   try {
-    const fileContent = readFileSync('./data/sample-data.json', 'utf-8');
+    const fileContent = readFileSync('../data/sample-data.json', 'utf-8');
     console.log('📄 File read, length:', fileContent.length);
     const data = JSON.parse(fileContent);
     console.log('📦 Parsed data keys:', Object.keys(data));
